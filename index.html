@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sticky Notes App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center my-4">Sticky Notes</h1>
+    <input type="text" id="searchBar" class="form-control" placeholder="Search notes..." oninput="renderNotes()">
+  </div>
+  <div id="notesWall"></div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="noteModal" tabindex="-1" aria-labelledby="noteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="noteModalLabel">View/Edit Note</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <textarea id="noteText" class="form-control" placeholder="Write your note here..."></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" onclick="saveNote()">Save Note</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Navbar -->
+  <div class="footer-navbar">
+    <button onclick="renderNotes()" title="Refresh Notes">🔄 Refresh</button>
+    <button onclick="alert('Edit mode: Click the top of note to edit.')" title="Edit Notes">✏ Edit</button>
+    <button class="plus-btn" data-bs-toggle="modal" data-bs-target="#noteModal">＋</button>
+    <button onclick="changeTheme()" title="Change Theme">🎨 Theme</button>
+    <button onclick="alert('Sticky Notes App\nVersion 1.0\nBuilt with ♥ by Arindam!')" title="About">ℹ About</button>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
